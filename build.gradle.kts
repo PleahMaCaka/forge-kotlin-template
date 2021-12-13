@@ -28,7 +28,7 @@ plugins {
 
 version = "1.18.1-0.0.1.0"
 group = "com.pleahmacaka"
-val parchmentDate = "2021.12.12"
+val parchmentDate = "2021.12.13-nightly-SNAPSHOT"
 
 val kotlin_version = "1.5.10"
 val coroutines_version = "1.5.2"
@@ -50,8 +50,7 @@ minecraft.run {
     // Change to your preferred mappings
     // mappings("official", "1.18.1")
     // Add your AccessTransformer
-    mappings("parchment", "$parchmentDate-1.17.1")
-    // TODO: Update Parchment 1.18.x
+    mappings("parchment", "$parchmentDate-1.18.1")
 
     accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
 
