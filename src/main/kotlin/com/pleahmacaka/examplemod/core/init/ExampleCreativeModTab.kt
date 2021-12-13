@@ -1,4 +1,4 @@
-package com.pleahmacaka.examplemod.common.modinit
+package com.pleahmacaka.examplemod.core.init
 
 import net.minecraft.world.item.CreativeModeTab
 import net.minecraft.world.item.ItemStack

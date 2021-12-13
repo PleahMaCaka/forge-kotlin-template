@@ -1,7 +1,7 @@
 package com.pleahmacaka.examplemod
 
-import com.pleahmacaka.examplemod.common.modinit.BlockInit
-import com.pleahmacaka.examplemod.common.modinit.ItemInit
+import com.pleahmacaka.examplemod.core.init.BlockInit
+import com.pleahmacaka.examplemod.core.init.ItemInit
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent

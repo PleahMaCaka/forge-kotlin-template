@@ -1,4 +1,4 @@
-package com.pleahmacaka.examplemod.common.modinit
+package com.pleahmacaka.examplemod.core.init
 
 import com.pleahmacaka.examplemod.ExampleMod
 import com.pleahmacaka.examplemod.common.blocks.ExampleBlock
