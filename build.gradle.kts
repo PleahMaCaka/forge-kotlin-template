@@ -28,7 +28,7 @@ plugins {
 
 version = "1.18.1-0.0.1.0"
 group = "com.pleahmacaka"
-val parchmentDate = "2021.12.05"
+val parchmentDate = "2021.12.12"
 
 val kotlin_version = "1.5.10"
 val coroutines_version = "1.5.2"
