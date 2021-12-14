@@ -1,6 +1,10 @@
 {
   "itemGroup.examplemod": "멋진 모드",
   "item.examplemod.example_sword": "멋진 검",
+  "item.examplemod.example_axe": "멋진 도끼",
+  "item.examplemod.example_pickaxe": "멋진 곡괭이",
+  "item.examplemod.example_hoe": "멋진 괭이",
+  "item.examplemod.example_shovel": "멋진 삽",
   "item.examplemod.example_food": "멋진 음식",
   "block.examplemod.example_block": "멋진 블럭"
 }
