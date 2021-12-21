@@ -8,5 +8,6 @@
   "item.examplemod.example_food": "멋진 음식",
   "block.examplemod.example_block": "멋진 블럭",
   "block.examplemod.example_ore": "멋진 광석",
-  "item.examplemod.example_ingot": "멋진 주괴"
+  "item.examplemod.example_ingot": "멋진 주괴",
+  "item.examplemod.explosion_stick": "왕짱짱 막대기"
 }

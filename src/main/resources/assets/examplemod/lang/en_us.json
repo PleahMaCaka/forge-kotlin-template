@@ -8,5 +8,6 @@
   "item.examplemod.example_food": "Example Food",
   "block.examplemod.example_block": "Example Block",
   "block.examplemod.example_ore": "Example Ore",
-  "item.examplemod.example_ingot": "Example Ingot"
+  "item.examplemod.example_ingot": "Example Ingot",
+  "item.examplemod.explosion_stick": "Explosion Stick"
 }
