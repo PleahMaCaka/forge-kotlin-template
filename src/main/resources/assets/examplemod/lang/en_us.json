@@ -6,5 +6,7 @@
   "item.examplemod.example_hoe": "Example Hoe",
   "item.examplemod.example_shovel": "Example Shovel",
   "item.examplemod.example_food": "Example Food",
-  "block.examplemod.example_block": "Example Block"
+  "block.examplemod.example_block": "Example Block",
+  "block.examplemod.example_ore": "Example Ore",
+  "item.examplemod.example_ingot": "Example Ingot"
 }

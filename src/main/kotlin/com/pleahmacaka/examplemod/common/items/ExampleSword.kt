@@ -1,6 +1,6 @@
 package com.pleahmacaka.examplemod.common.items
 
-import com.pleahmacaka.examplemod.core.init.ExampleCreativeModTab
+import com.pleahmacaka.examplemod.common.init.ExampleCreativeModTab
 import net.minecraft.world.item.SwordItem
 import net.minecraft.world.item.Tiers
 

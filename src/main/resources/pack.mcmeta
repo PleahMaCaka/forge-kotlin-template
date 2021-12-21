@@ -1,5 +1,6 @@
 {
     "pack": {
+        "title": "ExampleMod DataPack",
         "description": "examplemod resources",
         "pack_format": 8
     }
