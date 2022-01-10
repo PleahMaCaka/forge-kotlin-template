@@ -134,7 +134,7 @@ repositories {
 
 dependencies {
     // Use the latest version of Minecraft Forge
-    minecraft("net.minecraftforge:forge:1.18.1-39.0.0")
+    minecraft("net.minecraftforge:forge:1.18.1-39.0.17")
 
     /* IMGUI
     library("io.github.spair:imgui-java-binding:$imguiVersion")
