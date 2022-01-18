@@ -2,10 +2,7 @@ package com.pleahmacaka.examplemod.common.datagen
 
 import com.pleahmacaka.examplemod.common.init.ItemInit
 import com.pleahmacaka.examplemod.common.items.ExplosionStick
-import com.pleahmacaka.examplemod.common.items.tools.ExampleAxe
-import com.pleahmacaka.examplemod.common.items.tools.ExampleHoe
-import com.pleahmacaka.examplemod.common.items.tools.ExampleShovel
-import com.pleahmacaka.examplemod.common.items.tools.ExampleSword
+import com.pleahmacaka.examplemod.common.items.tools.*
 import net.minecraft.data.DataGenerator
 import net.minecraft.data.recipes.FinishedRecipe
 import net.minecraft.data.recipes.RecipeProvider
@@ -37,7 +34,7 @@ class ExampleRecipeProvider(pGenerator: DataGenerator) : RecipeProvider(pGenerat
             .unlockedBy("has_example_ingot", has(ItemInit.EXAMPLE_INGOT.get()))
             .save(pFinishedRecipeConsumer)
 
-        ShapedRecipeBuilder.shaped(Items.STONE_PICKAXE)
+        ShapedRecipeBuilder.shaped(ExamplePickaxe)
             .define('#', Tags.Items.RODS_WOODEN)
             .define('X', ItemInit.EXAMPLE_INGOT.get())
             .pattern("XXX").pattern(" # ")
@@ -71,6 +68,7 @@ class ExampleRecipeProvider(pGenerator: DataGenerator) : RecipeProvider(pGenerat
             .pattern(" # ")
             .pattern(" # ")
             .unlockedBy("has_example_ingot", has(ItemInit.EXAMPLE_INGOT.get()))
+            .save(pFinishedRecipeConsumer)
     }
 
 }

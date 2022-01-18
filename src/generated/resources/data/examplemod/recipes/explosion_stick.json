@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XOX",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:rods/wooden"
+    },
+    "O": {
+      "item": "minecraft:fire_charge"
+    },
+    "X": {
+      "item": "examplemod:example_ingot"
+    }
+  },
+  "result": {
+    "item": "examplemod:explosion_stick"
+  }
+}
