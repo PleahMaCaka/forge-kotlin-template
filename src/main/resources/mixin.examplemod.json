@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8.5",
+  "package": "com.pleahmacaka.examplemod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "MixinExample"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

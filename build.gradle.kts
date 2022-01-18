@@ -1,4 +1,6 @@
 import net.minecraftforge.gradle.common.util.MinecraftExtension
+import org.spongepowered.asm.gradle.plugins.MixinExtension
+import org.spongepowered.asm.gradle.plugins.struct.DynamicProperties
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -13,12 +15,18 @@ buildscript {
         // Make sure this version matches the one included in Kotlin for Forge
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.0")
         classpath("org.parchmentmc:librarian:1.+")
+
+        // Mixin
+        classpath("org.spongepowered:mixingradle:0.7.+")
     }
 }
 
 apply(plugin = "net.minecraftforge.gradle")
 apply(plugin = "org.parchmentmc.librarian.forgegradle")
 apply(plugin = "kotlin")
+
+// Mixin Gradle
+apply(plugin = "org.spongepowered.mixin")
 
 plugins {
     eclipse
@@ -44,6 +52,9 @@ println(
 )
 
 val Project.minecraft: MinecraftExtension
+    get() = extensions.getByType()
+
+val Project.mixin: MixinExtension
     get() = extensions.getByType()
 
 minecraft.run {
@@ -134,7 +145,12 @@ repositories {
 
 dependencies {
     // Use the latest version of Minecraft Forge
-    minecraft("net.minecraftforge:forge:1.18.1-39.0.17")
+    minecraft("net.minecraftforge:forge:1.18.1-39.0.44")
+
+    // Apply Mixin AP
+    annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
+    // clientAnnotationProcessor("org.spongepowered:mixin:0.8.5:processor")
+    // apiAnnotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 
     /* IMGUI
     library("io.github.spair:imgui-java-binding:$imguiVersion")
@@ -206,10 +222,22 @@ dependencies {
     )
 }
 
+mixin.run {
+    add(sourceSets.main.get(), "mixins.examplemod.refmap.json")
+    config("mixin.examplemod.json")
+
+    // Deleted when released
+    val debug = this.debug as DynamicProperties
+    debug.setProperty("verbose", true)
+    debug.setProperty("export", true)
+    setDebug(debug)
+}
+
 // Include assets and data from data generators
 sourceSets.main.configure {
     resources.srcDirs("src/generated/resources/")
 }
+
 
 tasks.withType<Jar> {
     archiveBaseName.set("examplemod")
