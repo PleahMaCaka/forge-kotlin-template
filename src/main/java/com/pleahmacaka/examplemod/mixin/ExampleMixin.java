@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import java.io.File;
 
 @Mixin(Minecraft.class)
-public class MixinExample {
+public class ExampleMixin {
     @Shadow
     @Final
     private User user;

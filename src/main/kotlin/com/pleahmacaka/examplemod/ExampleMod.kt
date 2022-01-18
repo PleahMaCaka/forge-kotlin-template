@@ -1,5 +1,6 @@
 package com.pleahmacaka.examplemod
 
+import com.pleahmacaka.examplemod.common.datagen.setupDataGen
 import com.pleahmacaka.examplemod.common.init.BlockInit
 import com.pleahmacaka.examplemod.common.init.ItemInit
 import net.minecraftforge.common.MinecraftForge
@@ -28,6 +29,9 @@ object ExampleMod {
 
         MOD_BUS.addListener(::onClientSetup)
         FORGE_BUS.addListener(::onDedicatedServerSetupEvent)
+
+        // dataGen - runData
+        MOD_BUS.addListener(::setupDataGen)
 
         ItemInit.register(MOD_BUS)
         BlockInit.register(MOD_BUS)
