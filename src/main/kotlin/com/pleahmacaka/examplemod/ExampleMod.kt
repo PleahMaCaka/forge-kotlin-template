@@ -3,6 +3,9 @@ package com.pleahmacaka.examplemod
 import com.pleahmacaka.examplemod.common.datagen.setupDataGen
 import com.pleahmacaka.examplemod.common.init.BlockInit
 import com.pleahmacaka.examplemod.common.init.ItemInit
+import com.pleahmacaka.examplemod.common.key.KeyBindings
+import com.pleahmacaka.examplemod.common.key.KeyHandler
+import net.minecraftforge.client.ClientRegistry
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent
@@ -11,6 +14,7 @@ import org.apache.logging.log4j.Level
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 import thedarkcolour.kotlinforforge.KotlinModLoadingContext
+
 
 val MOD_BUS = KotlinModLoadingContext.get().getKEventBus()
 val FORGE_BUS = MinecraftForge.EVENT_BUS!!
@@ -32,6 +36,10 @@ object ExampleMod {
 
         // dataGen - runData
         MOD_BUS.addListener(::setupDataGen)
+
+        // Keybinding
+        KeyBindings.KEYBINDINGS.forEach { ClientRegistry.registerKeyBinding(it) }
+        FORGE_BUS.addListener(KeyHandler::onKeyInput)
 
         ItemInit.register(MOD_BUS)
         BlockInit.register(MOD_BUS)
