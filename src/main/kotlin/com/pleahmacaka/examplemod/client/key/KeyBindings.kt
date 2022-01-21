@@ -1,4 +1,4 @@
-package com.pleahmacaka.examplemod.common.key
+package com.pleahmacaka.examplemod.client.key
 
 import com.mojang.blaze3d.platform.InputConstants
 import net.minecraft.client.KeyMapping

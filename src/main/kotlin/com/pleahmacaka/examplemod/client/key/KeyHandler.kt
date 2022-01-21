@@ -1,10 +1,10 @@
-package com.pleahmacaka.examplemod.common.key
+package com.pleahmacaka.examplemod.client.key
 
 import com.mojang.blaze3d.platform.InputConstants
-import com.pleahmacaka.examplemod.common.key.KeyBindings.KB_EXAMPLE_KEYBIND_AWESOME
-import com.pleahmacaka.examplemod.common.key.KeyBindings.KB_EXAMPLE_KEYBIND_ONE
-import com.pleahmacaka.examplemod.common.key.KeyBindings.KB_EXAMPLE_KEYBIND_TWO
-import com.pleahmacaka.examplemod.common.key.KeyBindings.KEYBINDINGS
+import com.pleahmacaka.examplemod.client.key.KeyBindings.KB_EXAMPLE_KEYBIND_AWESOME
+import com.pleahmacaka.examplemod.client.key.KeyBindings.KB_EXAMPLE_KEYBIND_ONE
+import com.pleahmacaka.examplemod.client.key.KeyBindings.KB_EXAMPLE_KEYBIND_TWO
+import com.pleahmacaka.examplemod.client.key.KeyBindings.KEYBINDINGS
 import net.minecraft.Util
 import net.minecraft.client.KeyMapping
 import net.minecraft.client.Minecraft

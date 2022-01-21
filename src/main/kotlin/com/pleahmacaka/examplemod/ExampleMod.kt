@@ -3,8 +3,8 @@ package com.pleahmacaka.examplemod
 import com.pleahmacaka.examplemod.common.datagen.setupDataGen
 import com.pleahmacaka.examplemod.common.init.BlockInit
 import com.pleahmacaka.examplemod.common.init.ItemInit
-import com.pleahmacaka.examplemod.common.key.KeyBindings
-import com.pleahmacaka.examplemod.common.key.KeyHandler
+import com.pleahmacaka.examplemod.client.key.KeyBindings
+import com.pleahmacaka.examplemod.client.key.KeyHandler
 import net.minecraftforge.client.ClientRegistry
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.Mod
