@@ -145,7 +145,7 @@ repositories {
 
 dependencies {
     // Use the latest version of Minecraft Forge
-    minecraft("net.minecraftforge:forge:1.18.1-39.0.44")
+    minecraft("net.minecraftforge:forge:1.18.1-39.0.55")
 
     // Apply Mixin AP
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
