@@ -9,5 +9,6 @@
   "block.examplemod.example_block": "멋진 블럭",
   "block.examplemod.example_ore": "멋진 광석",
   "item.examplemod.example_ingot": "멋진 주괴",
-  "item.examplemod.explosion_stick": "왕짱짱 막대기"
+  "item.examplemod.explosion_stick": "왕짱짱 막대기",
+  "item.examplemod.sad_obsidian_maker": "왕슬픈 흑요석 생성기"
 }
