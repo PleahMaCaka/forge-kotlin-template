@@ -36,7 +36,9 @@ plugins {
 
 version = "1.18.1-0.0.1.0"
 group = "com.pleahmacaka"
-val parchmentDate = "2021.12.19"
+
+val parchmentDate = "2022.01.23"
+val forgeVersion = "39.0.66"
 
 val kotlin_version = "1.5.10"
 val coroutines_version = "1.5.2"
@@ -145,7 +147,7 @@ repositories {
 
 dependencies {
     // Use the latest version of Minecraft Forge
-    minecraft("net.minecraftforge:forge:1.18.1-39.0.55")
+    minecraft("net.minecraftforge:forge:1.18.1-$forgeVersion")
 
     // Apply Mixin AP
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
