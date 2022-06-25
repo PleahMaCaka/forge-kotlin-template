@@ -8,11 +8,7 @@
 
 ## Features
 
-- ~~Example Items~~
-- ~~Mixin..?~~
+- Example Items
+- Mixin Example
 - DataGen
-    - ~~RecipeProvider~~
-- Ore generation
-- BlockEntity
-- Mob, BOSS
-
+    - RecipeProvider
