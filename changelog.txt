@@ -1,0 +1,138 @@
+1.19.x Changelog
+41.0
+====
+ - 41.0.45 Update BootstrapLauncher to 1.1.1 and remove the forced
+           merge of text2speech since new BSL does it.
+ - 41.0.44 Merge text2speech libs together so the natives are part of the jar
+ - 41.0.43 Make Forge ConfigValues implement Supplier. (#8776)
+ - 41.0.42 Fix merge derp in AbstractModProvider and logic derp in ModDiscoverer
+ - 41.0.41 Add "send to mods in order" method to ModList and use it (#8759)
+           * Add "send to mods in order" method to ModList and use it in RegistryEvents and DataGen..
+           * Also preserve order in runAll
+           * Do better comparator thanks @pupnewfster
+           * postEvent as well.
+ - 41.0.40 Update SJH to 2.0.2.. (#8774)
+           * Update SJH to 2.0.3..
+ - 41.0.39 Sanity check the version specified in the mod file (#8749)
+           * Sanity check the version specified in the mod file to
+           make sure it's compatible with JPMS standards for
+           version strings.
+           Closes #8748
+           Requires SPI 6
+ - 41.0.38 Fix SP-Devtime world loading crash due to missing server configs (#8757)
+ - 41.0.37 Remove ForgeWorldPreset and related code (#8756)
+           Vanilla has a working replacement.
+ - 41.0.36 Change ConfigValue#get() to throw if called before config loaded  (#8236)
+           This prevents silent issues where a mod gets the value of the setting
+           before configs are loaded, which means the default value is always
+           returned.
+           As there may be situations where the getting the config setting before
+           configs are loaded is needed, and it is not preferable to hardcode the
+           default value, the original behavior is made available through #getRaw.
+           Implements and closes #7716
+           * Remove getRaw() method
+           This is effectively replaced with the expression `spec.isLoaded() ?
+           configValue.get() : configValue.getDefault()`.
+           * Remove forceSystemNanoTime config setting
+           As implemented, it never had any effect as any place where the config
+           value would be queried happens before the configs are loaded.
+ - 41.0.35 Fix EnumArgument to use enum names for suggestions (#8728)
+           Previously, the suggestions used the string representation of the enum
+           through Enum#toString, which can differ from the name of the enum as
+           required by Enum#valueOf, causing invalid suggestions (both in gui and
+           through the error message).
+ - 41.0.34 Jar-In-Jar (#8715)
+ - 41.0.33 [1.19] Fix data-gen output path of custom data-pack registries (#8724)
+ - 41.0.32 Fix player dive and surface animations in custom fluids (#8738)
+ - 41.0.31 [1.19.x] Affect ItemEntity Motion in Custom Fluids (#8737)
+ - 41.0.30 [1.19] Add support for items to add enchantments without setting them in NBT (#8719)
+ - 41.0.29 [1.19.x] Add stock biome modifier types for adding features and spawns (#8697)
+ - 41.0.28 [1.19.x] Fluid API Overhaul (#8695)
+ - 41.0.27 Replace StructureSpawnListGatherEvent with StructureModifiers (#8717)
+ - 41.0.26 Use stack sensitive translation key by default for FluidAttributes. (#8707)
+ - 41.0.25 Delete LootItemRandomChanceCondition which added looting bonus enchantment incorrectly. (#8733)
+ - 41.0.24 Update EventBus to 6.0, ModLauncher to 10.0.1 and BootstrapLauncher to 1.1 (#8725)
+ - 41.0.23 Replace support bot with support action (#8700)
+ - 41.0.22 Fix Reach Distance / Attack Range being clamped at 6.0 (#8699)
+ - 41.0.21 [1.19.x] Fix mods' worldgen data not being loaded when creating new singleplayer worlds (#8693)
+ - 41.0.20 [1.19.x] Fix experimental confirmation screen (#8727)
+ - 41.0.19 Move is_mountain to forge's tag instead of vanilla's (#8726)
+ - 41.0.18 [1.19.x] Add CommandBuildContext to Register Command Events (#8716)
+ - 41.0.17 Only rewrite datagen cache when needed (#8709)
+ - 41.0.16 Implement a simple feature system for Forge (#8670)
+           * Implement a simple feature system for Forge. Allows mods to demand certain features are available in the loading system. An example for java_version is provided, but not expected to be used widely. This is more targeted to properties of the display, such as GL version and glsl profile.
+           Requires https://github.com/MinecraftForge/ForgeSPI/pull/13 to be merged first in ForgeSPI, and the SPI to be updated appropriately in build.gradle files.
+           * rebase onto 1.19 and add in SPI update
+ - 41.0.15 displayTest option in mods.toml (#8656)
+           * displayTest option in mods.toml
+           * "MATCH_VERSION" (or none) is existing match version string behaviour
+           * "IGNORE_SERVER_VERSION" accepts anything and sends special SERVERONLY string
+           * "IGNORE_ALL_VERSION" accepts anything and sends an empty string
+           * "NONE" allows the mod to supply their own displaytest using the IExtensionPoint mechanism.
+           * Update display test with feedback and added the mods.toml discussion in mdk.
+ - 41.0.14 Update forgeSPI to v5 (#8696)
+ - 41.0.13 Make IVertexConsumers such as the lighting pipeline, be aware of which format they are dealing with. (#8692)
+           Also fix Lighting pipeline ignoring the overlay coords from the block renderer.
+ - 41.0.12 Fixed misaligned patch to invalidateCaps in Entity (#8705)
+ - 41.0.11 Fix readAdditionalLevelSaveData (#8704)
+ - 41.0.10 Fixes setPos to syncPacketPositionCodec (#8702)
+ - 41.0.9  Fix wrong param passed to PlayLevelSoundEvent.AtEntity (#8688)
+ - 41.0.8  Override initialize in SlotItemHandler, so it uses the itemhandler instead of container (#8679)
+ - 41.0.7  Update MDK for 1.19 changes (#8675)
+ - 41.0.6  Add helper to RecipeType, and fix eclipse compiler error in test class.
+ - 41.0.5  Update modlauncher to latest (#8691)
+ - 41.0.4  Fix getting entity data serializer id crashing due to improper port to new registry system (#8678)
+ - 41.0.3  Fire registry events in the order vanilla registers to registries (#8677)
+           Custom registries are still fired in alphabetical order, after all vanilla registries.
+           Move forge's data_serializers registry to forge namespace.
+ - 41.0.2  Add method with pre/post wrap to allow setting/clearing mod context. (#8682)
+           Fixes ActiveContainer in ModContext not being present in registry events. Closes #8680
+ - 41.0.1  Fix the Curlie oopsie
+ - 41.0.0  Forge 1.19
+           * Bump pack.mcmeta formats
+           * 1.19 biome modifiers
+           * Mark ClientPlayerNetworkEvent.LoggedOutEvent's getters as nullable
+           * Add docs and package-info to client extension interfaces package
+           * Move RenderBlockOverlayEvent hooks to ForgeHooksClient
+           * Add package-infos to client events package
+           * Rename SoundLoadEvent to SoundEngineLoadEvent
+           This reduces confusion from consumers which may think the
+           name SoundLoadEvent refers to an individual sound being loaded rather
+           than the sound engine.
+           * Document and change SoundLoadEvent to fire on mod bus
+           Previously, it fired on both the mod bus and the Forge bus, which is
+           confusing for consumers.
+           * Delete SoundSetupEvent
+           Looking at its original implementation shows that there isn't an
+           appropriate place in the new sound code to reinsert the event, and the
+           place of 'sound engine/manager initialization event' is taken already by SoundLoadEvent.
+           * Perform some cleanup on client events
+            - Removed nullable annotations from ClientPlayerNetworkEvent
+            - Renamed #getPartialTicks methods to #getPartialTick, to be consistent
+             with vanilla's naming of the partial tick
+            - Cleanup documentation to remove line breaks, use the
+             spelling 'cancelled' over
+             'canceled', and improve docs on existing and
+              new methods.
+           * Remove EntityEvent.CanUpdate
+           Closes MinecraftForge/MinecraftForge#6394
+           * Switch to Jetbrains nullability annotations
+           * New PlayLevelSoundEvent; replaces old PlaySoundAtEntityEvent
+           * Remove ForgeWorldPresetScreens
+           * Remove IForgeRegistryEntry
+           * Remove use of List<Throwable> in FML's CompletableFutures
+           * Add docs to mod loading stages, stages, and phases
+           * Gradle 7.4.2
+           * Use SLF4J in FMLLoader and other subprojects
+           * Switch dynamic versions in subprojects to pinned ones
+           * Switch ForgeRoot and MDK to FG plugin markers
+           * Configure Forge javadoc task
+           The task now uses a custom stylesheet with MCForge elements, and
+           configured to combine the generation from the four FML subprojects
+           (fmlloader, fmlcore, javafmllanguage, mclanguage) and the Forge project
+           into the javadoc output.
+           * Update docs/md files, for 1.19 update and the move away from IRC to Discord.
+           * Make "Potentially dangerous alternative prefix" a debug warning, not info.
+           Co-authored-by: Curle <curle@gemwire.uk>
+           Co-authored-by: sciwhiz12 <arnoldnunag12@gmail.com>
+
