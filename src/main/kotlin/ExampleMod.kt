@@ -1,11 +1,15 @@
 package com.example.examplemod
 
+import com.example.examplemod.keybind.KeyBindings
+import net.minecraftforge.client.ClientRegistry
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent
 import net.minecraftforge.fml.event.lifecycle.FMLDedicatedServerSetupEvent
 import org.apache.logging.log4j.Level
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
+import thedarkcolour.kotlinforforge.forge.FORGE_BUS
+import thedarkcolour.kotlinforforge.forge.MOD_BUS
 
 @Mod(ExampleMod.MODID)
 object ExampleMod {
@@ -16,6 +20,12 @@ object ExampleMod {
 
     init {
         LOGGER.log(Level.INFO, "$MODID has started!")
+
+        MOD_BUS.addListener(::onClientSetup)
+        FORGE_BUS.addListener(::onDedicatedServerSetupEvent)
+
+        KeyBindings.KEYBINDINGS.forEach { ClientRegistry.registerKeyBinding(it) }
+        FORGE_BUS.addListener(KeyBindHandler::onKeyInput)
     }
 
     /**
