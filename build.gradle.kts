@@ -153,8 +153,6 @@ dependencies {
     minecraft("net.minecraftforge:forge:1.19-41.0.45")
 
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
-
-    val library = configurations.getByName("library")
 }
 
 sourceSets.main.configure {
