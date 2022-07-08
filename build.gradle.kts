@@ -2,7 +2,7 @@ import net.minecraftforge.gradle.common.util.MinecraftExtension
 import org.spongepowered.asm.gradle.plugins.MixinExtension
 import org.spongepowered.asm.gradle.plugins.struct.DynamicProperties
 import java.text.SimpleDateFormat
-import java.util.Date
+import java.util.*
 
 buildscript {
     repositories {
