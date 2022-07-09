@@ -1,5 +1,6 @@
 package com.pleahmacaka.examplemod
 
+import com.pleahmacaka.examplemod.common.init.BlockInit
 import com.pleahmacaka.examplemod.common.init.ItemInit
 import com.pleahmacaka.examplemod.common.keybind.KeyBindings
 import net.minecraftforge.client.ClientRegistry
@@ -30,6 +31,7 @@ object ExampleMod {
 
         // Item / Register
         ItemInit.register(MOD_BUS)
+        BlockInit.register(MOD_BUS)
     }
 
     /**
