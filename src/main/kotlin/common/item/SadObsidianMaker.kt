@@ -1,4 +1,4 @@
-package com.pleahmacaka.examplemod.common.items
+package com.pleahmacaka.examplemod.common.item
 
 import com.pleahmacaka.examplemod.common.init.ExampleCreativeModTab
 import net.minecraft.world.InteractionResult
