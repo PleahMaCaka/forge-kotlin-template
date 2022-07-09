@@ -1,7 +1,7 @@
 {
     "required": true,
     "minVersion": "0.8",
-    "package": "com.example.examplemod.mixins.bindings",
+    "package": "com.pleahmacaka.examplemod.mixins.bindings",
     "compatibilityLevel": "JAVA_17",
     "mixins": [
     ],

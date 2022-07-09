@@ -1,4 +1,4 @@
-package com.example.examplemod.keybind
+package com.pleahmacaka.examplemod.keybind
 
 import com.mojang.blaze3d.platform.InputConstants
 import net.minecraft.client.KeyMapping

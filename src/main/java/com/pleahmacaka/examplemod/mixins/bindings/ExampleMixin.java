@@ -1,4 +1,4 @@
-package com.example.examplemod.mixins.bindings;
+package com.pleahmacaka.examplemod.mixins.bindings;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.User;

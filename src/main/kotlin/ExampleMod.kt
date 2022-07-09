@@ -1,6 +1,6 @@
-package com.example.examplemod
+package com.pleahmacaka.examplemod
 
-import com.example.examplemod.keybind.KeyBindings
+import com.pleahmacaka.examplemod.keybind.KeyBindings
 import net.minecraftforge.client.ClientRegistry
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent
