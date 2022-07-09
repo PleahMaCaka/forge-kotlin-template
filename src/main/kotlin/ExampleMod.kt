@@ -1,5 +1,6 @@
 package com.pleahmacaka.examplemod
 
+import com.pleahmacaka.examplemod.common.init.ItemInit
 import com.pleahmacaka.examplemod.keybind.KeyBindings
 import net.minecraftforge.client.ClientRegistry
 import net.minecraftforge.fml.common.Mod
@@ -26,6 +27,9 @@ object ExampleMod {
 
         KeyBindings.KEYBINDINGS.forEach { ClientRegistry.registerKeyBinding(it) }
         FORGE_BUS.addListener(KeyBindHandler::onKeyInput)
+
+        // Item / Register
+        ItemInit.register(MOD_BUS)
     }
 
     /**
