@@ -1,7 +1,7 @@
-package com.pleahmacaka.examplemod.common.init
+package com.pleahmacaka.examplemod.init
 
 import com.pleahmacaka.examplemod.ExampleMod
-import com.pleahmacaka.examplemod.common.block.ExampleBlock
+import com.pleahmacaka.examplemod.block.ExampleBlock
 import net.minecraft.world.level.block.Block
 import net.minecraftforge.eventbus.api.IEventBus
 import net.minecraftforge.registries.DeferredRegister

@@ -1,6 +1,6 @@
-package com.pleahmacaka.examplemod.common.item
+package com.pleahmacaka.examplemod.item
 
-import com.pleahmacaka.examplemod.common.init.ExampleCreativeModTab
+import com.pleahmacaka.examplemod.init.ExampleCreativeModTab
 import net.minecraft.world.InteractionResult
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.context.UseOnContext

@@ -1,8 +1,8 @@
-package com.pleahmacaka.examplemod.common.init
+package com.pleahmacaka.examplemod.init
 
 import com.pleahmacaka.examplemod.ExampleMod
-import com.pleahmacaka.examplemod.common.block.ExampleBlock
-import com.pleahmacaka.examplemod.common.item.SadObsidianMaker
+import com.pleahmacaka.examplemod.block.ExampleBlock
+import com.pleahmacaka.examplemod.item.SadObsidianMaker
 import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.Item
 import net.minecraftforge.eventbus.api.IEventBus
@@ -25,5 +25,7 @@ object ItemInit {
     // Block Items
     ////////////////////
 
-    val EXAMPLE_BLOCK = ITEMS.register("example_block") { BlockItem(ExampleBlock, Item.Properties().tab(ExampleCreativeModTab)) }
+    val EXAMPLE_BLOCK = ITEMS.register("example_block") {
+        BlockItem(ExampleBlock, Item.Properties().tab(ExampleCreativeModTab))
+    }
 }
