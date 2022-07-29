@@ -7,7 +7,7 @@ import org.lwjgl.glfw.GLFW
 
 object KeyBindings {
 
-    private const val CATEGORY = "PleahMaCaka's MagicTool"
+    private const val CATEGORY = "Example Keybind"
 
     val KB_EXAMPLE_KEYBIND_ONE = KeyMapping(
         "ONE",
