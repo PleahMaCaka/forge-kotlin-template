@@ -29,8 +29,6 @@ plugins {
 version = "1.19-0.0.5.0"
 group = "com.pleahmacaka"
 
-val imguiVersion = "1.86.4"
-
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
 println(
