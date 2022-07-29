@@ -1,8 +1,8 @@
-package com.pleahmacaka.examplemod.keybind
+package com.pleahmacaka.examplemod.common.keybind
 
-import com.pleahmacaka.examplemod.keybind.KeyBindings.KB_EXAMPLE_KEYBIND_ONE
-import com.pleahmacaka.examplemod.keybind.KeyBindings.KB_EXAMPLE_KEYBIND_TWO
-import com.pleahmacaka.examplemod.keybind.KeyBindings.KEYBINDINGS
+import com.pleahmacaka.examplemod.common.keybind.KeyBinding.KB_EXAMPLE_KEYBIND_ONE
+import com.pleahmacaka.examplemod.common.keybind.KeyBinding.KB_EXAMPLE_KEYBIND_TWO
+import com.pleahmacaka.examplemod.common.keybind.KeyBinding.KEYBINDINGS
 import net.minecraft.client.KeyMapping
 import net.minecraft.client.Minecraft
 import net.minecraft.client.player.LocalPlayer

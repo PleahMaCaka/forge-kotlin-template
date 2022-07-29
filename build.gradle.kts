@@ -9,19 +9,19 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0")
         classpath("org.spongepowered:mixingradle:0.7.+")
     }
 }
 
 apply(plugin = "kotlin")
 apply(plugin = "org.spongepowered.mixin")
-apply(from = "https://raw.githubusercontent.com/thedarkcolour/KotlinForForge/site/thedarkcolour/kotlinforforge/gradle/kff-3.6.0.gradle")
+apply(from = "https://raw.githubusercontent.com/thedarkcolour/KotlinForForge/site/thedarkcolour/kotlinforforge/gradle/kff-3.7.0.gradle")
 
 plugins {
     eclipse
     `maven-publish`
-    // kotlin("jvm") version "1.6.10"
+
     id("net.minecraftforge.gradle") version "5.1.+"
     id("org.parchmentmc.librarian.forgegradle") version "1.+"
 }
@@ -37,6 +37,8 @@ println(
     ) + ") Arch: " + System.getProperty("os.arch")
 )
 
+jarJar.enable()
+
 val Project.minecraft: MinecraftExtension
     get() = extensions.getByType()
 
@@ -44,7 +46,7 @@ val Project.mixin: MixinExtension
     get() = extensions.getByType()
 
 minecraft.run {
-    // Change to your preferred mappings
+
     mappings("parchment", "1.18.2-2022.06.19-1.19")
 
     accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
@@ -151,6 +153,8 @@ dependencies {
     minecraft("net.minecraftforge:forge:1.19-41.0.45")
 
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
+
+    implementation(group = "thedarkcolour", name = "kfflib", version = "3.7.0")
 }
 
 sourceSets.main.configure {

@@ -1,4 +1,4 @@
-package com.pleahmacaka.examplemod.block
+package com.pleahmacaka.examplemod.common.block
 
 
 import net.minecraft.world.level.block.Block

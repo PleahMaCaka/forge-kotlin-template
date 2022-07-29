@@ -1,8 +1,8 @@
-package com.pleahmacaka.examplemod.init
+package com.pleahmacaka.examplemod.common.init
 
 import com.pleahmacaka.examplemod.ExampleMod
-import com.pleahmacaka.examplemod.block.ExampleBlock
-import com.pleahmacaka.examplemod.item.SadObsidianMaker
+import com.pleahmacaka.examplemod.common.block.ExampleBlock
+import com.pleahmacaka.examplemod.common.item.SadObsidianMaker
 import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.Item
 import net.minecraftforge.eventbus.api.IEventBus

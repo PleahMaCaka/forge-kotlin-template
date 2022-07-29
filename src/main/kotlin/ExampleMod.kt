@@ -1,9 +1,9 @@
 package com.pleahmacaka.examplemod
 
-import com.pleahmacaka.examplemod.init.BlockInit
-import com.pleahmacaka.examplemod.init.ItemInit
-import com.pleahmacaka.examplemod.keybind.KeyBindHandler
-import com.pleahmacaka.examplemod.keybind.KeyBindings
+import com.pleahmacaka.examplemod.common.init.BlockInit
+import com.pleahmacaka.examplemod.common.init.ItemInit
+import com.pleahmacaka.examplemod.common.keybind.KeyBindHandler
+import com.pleahmacaka.examplemod.common.keybind.KeyBinding
 import net.minecraftforge.client.ClientRegistry
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent
@@ -27,7 +27,7 @@ object ExampleMod {
         MOD_BUS.addListener(::onClientSetup)
         FORGE_BUS.addListener(::onDedicatedServerSetupEvent)
 
-        KeyBindings.KEYBINDINGS.forEach { ClientRegistry.registerKeyBinding(it) }
+        KeyBinding.KEYBINDINGS.forEach { ClientRegistry.registerKeyBinding(it) }
         FORGE_BUS.addListener(KeyBindHandler::onKeyInput)
 
         // Item / Register
