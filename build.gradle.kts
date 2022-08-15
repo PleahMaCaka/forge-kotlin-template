@@ -47,7 +47,7 @@ val Project.mixin: MixinExtension
 
 minecraft.run {
 
-    mappings("parchment", "1.18.2-2022.06.19-1.19")
+    mappings("parchment", "2022.08.14-1.19.2")
 
     accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
 
@@ -150,7 +150,7 @@ repositories {
 }
 
 dependencies {
-    minecraft("net.minecraftforge:forge:1.19-41.0.45")
+    minecraft("net.minecraftforge:forge:1.19.2-43.0.11")
 
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 
