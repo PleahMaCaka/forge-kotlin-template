@@ -37,7 +37,6 @@ println(
     ) + ") Arch: " + System.getProperty("os.arch")
 )
 
-jarJar.enable()
 
 val Project.minecraft: MinecraftExtension
     get() = extensions.getByType()
