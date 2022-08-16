@@ -16,7 +16,7 @@ buildscript {
 
 apply(plugin = "kotlin")
 apply(plugin = "org.spongepowered.mixin")
-apply(from = "https://raw.githubusercontent.com/thedarkcolour/KotlinForForge/site/thedarkcolour/kotlinforforge/gradle/kff-3.7.0.gradle")
+apply(from = "https://raw.githubusercontent.com/thedarkcolour/KotlinForForge/site/thedarkcolour/kotlinforforge/gradle/kff-3.7.1.gradle")
 
 plugins {
     eclipse
@@ -54,10 +54,10 @@ minecraft.run {
         create("client") {
             workingDirectory(project.file("run"))
             property("forge.logging.markers", "REGISTRIES")
-
             property("forge.logging.console.level", "debug")
-
             property("forge.enabledGameTestNamespaces", "examplemod")
+            property("terminal.jline", "true")
+
             mods {
                 create("examplemod") {
                     source(sourceSets.main.get())
@@ -68,10 +68,10 @@ minecraft.run {
         create("server") {
             workingDirectory(project.file("run"))
             property("forge.logging.markers", "REGISTRIES")
-
             property("forge.logging.console.level", "debug")
-
             property("forge.enabledGameTestNamespaces", "examplemod")
+            property("terminal.jline", "true")
+
             mods {
                 create("examplemod") {
                     source(sourceSets.main.get())
@@ -81,12 +81,10 @@ minecraft.run {
 
         create("gameTestServer") {
             workingDirectory(project.file("run"))
-
             property("forge.logging.markers", "REGISTRIES")
-
             property("forge.logging.console.level", "debug")
-
             property("forge.enabledGameTestNamespaces", "examplemod")
+            property("terminal.jline", "true")
 
             mods {
                 create("examplemod") {
@@ -98,8 +96,8 @@ minecraft.run {
         create("data") {
             workingDirectory(project.file("run"))
             property("forge.logging.markers", "REGISTRIES")
-
             property("forge.logging.console.level", "debug")
+            property("terminal.jline", "true")
 
             args(
                 "--mod",
@@ -150,10 +148,7 @@ repositories {
 
 dependencies {
     minecraft("net.minecraftforge:forge:1.19.2-43.0.11")
-
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
-
-    implementation(group = "thedarkcolour", name = "kfflib", version = "3.7.0")
 }
 
 sourceSets.main.configure {

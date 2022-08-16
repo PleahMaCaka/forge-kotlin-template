@@ -1,6 +1,5 @@
 package com.pleahmacaka.examplemod.event
 
-import com.pleahmacaka.examplemod.ExampleMod
 import com.pleahmacaka.examplemod.MODID
 import net.minecraftforge.event.entity.living.LivingAttackEvent
 import net.minecraftforge.eventbus.api.SubscribeEvent
