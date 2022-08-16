@@ -1,6 +1,6 @@
 package com.pleahmacaka.examplemod.common.item
 
-import com.pleahmacaka.examplemod.common.init.ExampleCreativeModTab
+import com.pleahmacaka.examplemod.common.init.ExampleCreativeTab
 import net.minecraft.world.InteractionResult
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.context.UseOnContext
@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.Blocks
 
 object SadObsidianMaker : Item(
     Properties()
-        .tab(ExampleCreativeModTab)
+        .tab(ExampleCreativeTab)
         .stacksTo(1)
 ) {
     override fun useOn(context: UseOnContext): InteractionResult {

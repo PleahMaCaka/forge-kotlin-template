@@ -5,7 +5,7 @@ import net.minecraft.client.KeyMapping
 import net.minecraftforge.client.settings.KeyConflictContext
 import org.lwjgl.glfw.GLFW
 
-object KeyBinding {
+object KeyBinds {
 
     private const val CATEGORY = "Example Keybind"
 

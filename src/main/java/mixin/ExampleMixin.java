@@ -1,4 +1,4 @@
-package com.pleahmacaka.examplemod.mixin;
+package mixin;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.User;
