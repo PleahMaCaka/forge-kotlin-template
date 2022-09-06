@@ -46,7 +46,7 @@ val Project.mixin: MixinExtension
 
 minecraft.run {
 
-    mappings("parchment", "2022.08.14-1.19.2")
+    mappings("parchment", "2022.09.04-1.19.2")
 
     accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
 
@@ -57,6 +57,7 @@ minecraft.run {
             property("forge.logging.console.level", "debug")
             property("forge.enabledGameTestNamespaces", "examplemod")
             property("terminal.jline", "true")
+            property("log4j.configurationFile", "log4j2.xml") // pretty logger
 
             mods {
                 create("examplemod") {
@@ -147,7 +148,7 @@ repositories {
 }
 
 dependencies {
-    minecraft("net.minecraftforge:forge:1.19.2-43.0.11")
+    minecraft("net.minecraftforge:forge:1.19.2-43.1.16")
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 }
 

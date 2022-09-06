@@ -1,9 +1,11 @@
 package com.pleahmacaka.examplemod
 
 import com.pleahmacaka.examplemod.common.init.BlockInit
-import com.pleahmacaka.examplemod.common.init.ExampleCreativeTab
 import com.pleahmacaka.examplemod.common.init.ItemInit
 import com.pleahmacaka.examplemod.common.keybind.KeyBindHandler.registerKeybindings
+import net.minecraft.world.item.CreativeModeTab
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.item.Items
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent
 import org.apache.logging.log4j.Level
@@ -16,7 +18,7 @@ const val MODID = "examplemod"
 @Mod(MODID)
 object ExampleMod {
 
-    private val LOGGER: Logger = LogManager.getLogger()
+    val LOGGER: Logger = LogManager.getLogger(MODID)
 
     init {
         LOGGER.log(Level.INFO, "$MODID has started!")
@@ -31,7 +33,13 @@ object ExampleMod {
 
     private fun onClientSetup(event: FMLClientSetupEvent) {
         LOGGER.log(Level.INFO, "Initializing client... with ExampleMod!")
-        ExampleCreativeTab
+        ExampleCreativeTab // prevent crash when nothing registered to creative tab
     }
 
+}
+
+object ExampleCreativeTab : CreativeModeTab(MODID) {
+    override fun makeIcon(): ItemStack {
+        return ItemStack(Items.DIAMOND)
+    }
 }

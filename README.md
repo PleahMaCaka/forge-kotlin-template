@@ -8,11 +8,18 @@
 
 ## Features
 
-- [Key Binding (hotkey)](./src/main/kotlin/common/keybind/KeyBinding.kt)
-- [Example Item](./src/main/kotlin/common/item/SadObsidianMaker.kt)
-- [Example Block](./src/main/kotlin/common/block/ExampleBlock.kt) ㅡ [BlockInit](./src/main/kotlin/common/block/ExampleBlock.kt)
-  / [BlockItem](./src/main/kotlin/common/init/ItemInit.kt) L28
-- [Example Creative Tab](./src/main/kotlin/init/ExampleCreativeTab.kt)
-- [Mixin Example](./src/main/java/com/pleahmacaka/examplemod/mixin/ExampleMixin.java)
-- [Bind Mixins To Kotlin](./src/main/java/com/pleahmacaka/examplemod/mixin/bindings/CheckAround.java)
-  ㅡ [Actually Executed Function](./src/main/kotlin/mixinkt/CanAttackStuff.kt)
+- Initialization
+    - [Items](./src/main/kotlin/common/init/ItemInit.kt) and
+      [Blocks](./src/main/kotlin/common/init/BlockInit.kt),
+      [BlockItems](./src/main/kotlin/common/init/BlockItemInit.kt)
+- Examples
+    - [Example Item](./src/main/kotlin/common/item/SadObsidianMaker.kt)
+    - [Example Block](./src/main/kotlin/common/block/ExampleBlock.kt)
+    - [Example Creative Tab](./src/main/kotlin/ExampleMod.kt#L41)
+    - Key Binds (Shortcuts)
+        - [KeyBinds](./src/main/kotlin/common/keybind/KeyBinds.kt),
+          [Handler](./src/main/kotlin/common/keybind/KeyBindHandler.kt)
+- Mixins
+    - [Normal Mixin Example](./src/main/java/mixin/ExampleMixin.java)
+    - [Bind Mixins To Kotlin](./src/main/java/mixin/bindings/ExampleBindingMixin.java)
+      ㅡ [Actually Executed Function](./src/main/kotlin/mixinkt/ExampleMixinBinding.kt)

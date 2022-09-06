@@ -2,3 +2,4 @@
 .gradle
 build
 run
+!run/log4j2.xml
