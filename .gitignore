@@ -2,8 +2,7 @@
 .gradle
 build
 run
-!run/log4j2.xml
 .vscode
 .fleet
-run/log4j2
+run/log4j2.xml
 out
