@@ -9,7 +9,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.21")
         classpath("org.spongepowered:mixingradle:0.7.+")
     }
 }
@@ -37,7 +37,6 @@ println(
     ) + ") Arch: " + System.getProperty("os.arch")
 )
 
-
 val Project.minecraft: MinecraftExtension
     get() = extensions.getByType()
 
@@ -45,9 +44,7 @@ val Project.mixin: MixinExtension
     get() = extensions.getByType()
 
 minecraft.run {
-
-    mappings("parchment", "2022.10.09-1.19.2")
-
+    mappings("parchment", "2022.11.06-1.19.2")
     accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
 
     runs.run {
@@ -151,7 +148,7 @@ repositories {
 }
 
 dependencies {
-    minecraft("net.minecraftforge:forge:1.19.2-43.1.34")
+    minecraft("net.minecraftforge:forge:1.19.2-43.1.52")
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 }
 

@@ -1,4 +1,4 @@
-# Minecraft Forge Kotlin Template
+# 🪵 Minecraft Forge ⚒ Kotlin Template 💜
 
 | INCLUDED       | INFO                                            |
 |----------------|-------------------------------------------------|
@@ -19,7 +19,7 @@
     - Key Binds (Shortcuts)
         - [KeyBinds](./src/main/kotlin/common/keybind/KeyBinds.kt),
           [Handler](./src/main/kotlin/common/keybind/KeyBindHandler.kt)
-- Mixins
-    - [Normal Mixin Example](./src/main/java/mixin/ExampleMixin.java)
-    - [Bind Mixins To Kotlin](./src/main/java/mixin/bindings/ExampleBindingMixin.java)
-      ㅡ [Actually Executed Function](./src/main/kotlin/mixinkt/ExampleMixinBinding.kt)
+- Mixin
+    - [General mixin example](./src/main/java/mixin/ExampleMixin.java)
+    - [Mixin kotlin binding](./src/main/java/mixin/bindings/ExampleBindingMixin.java)
+      ㅡ [actually executed function](./src/main/kotlin/mixinkt/ExampleMixinBinding.kt)
