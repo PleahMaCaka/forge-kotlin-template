@@ -44,7 +44,7 @@ val Project.mixin: MixinExtension
     get() = extensions.getByType()
 
 minecraft.run {
-    mappings("parchment", "2022.11.27")
+    mappings("parchment", "2022.11.27-1.19.2")
     accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
 
     runs.run {
