@@ -64,6 +64,10 @@ minecraft.run {
                     source(sourceSets.main.get())
                 }
             }
+            
+            args(
+                "--username", "Player",
+            )
         }
 
         create("server") {
