@@ -24,7 +24,6 @@ object ExampleMod {
         LOGGER.log(Level.INFO, "$MODID has started!")
 
         MOD_BUS.addListener(::onClientSetup)
-        MOD_BUS.addListener(::registerKeybindings)
 
         // Item / Register
         ItemInit.register(MOD_BUS)
@@ -34,6 +33,8 @@ object ExampleMod {
     private fun onClientSetup(event: FMLClientSetupEvent) {
         LOGGER.log(Level.INFO, "Initializing client... with ExampleMod!")
         ExampleCreativeTab // prevent crash when nothing registered to creative tab
+        
+        MOD_BUS.addListener(::registerKeybindings)
     }
 
 }
