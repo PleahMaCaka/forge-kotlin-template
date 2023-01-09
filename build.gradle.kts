@@ -37,6 +37,7 @@ println(
 )
 
 minecraft {
+    mappings("official", "1.19.3")
     mappings("parchment", "BLEEDING-SNAPSHOT-1.19.3")
     accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
 
