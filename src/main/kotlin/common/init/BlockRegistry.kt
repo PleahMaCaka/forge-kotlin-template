@@ -9,7 +9,7 @@ import net.minecraftforge.eventbus.api.IEventBus
 import net.minecraftforge.registries.DeferredRegister
 import net.minecraftforge.registries.ForgeRegistries
 
-object BlockInit {
+object BlockRegistry {
 
     private val BLOCKS: DeferredRegister<Block> = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID)
 
@@ -17,4 +17,5 @@ object BlockInit {
 
     // Example Block
     val EXAMPLE_BLOCK = BLOCKS.register<Block>("example_block") { ExampleBlock }
+
 }

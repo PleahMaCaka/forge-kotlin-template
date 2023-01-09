@@ -1,6 +1,5 @@
 {
-    "itemGroup.examplemod": "Example Mod",
+    "itemGroup.examplemod.exampletab": "Example Mod",
     "item.examplemod.sad_obsidian_maker": "Sad Obsidian Maker",
-    "block.examplemod.example_block": "Example Block",
-    "item.examplemod.test_sword": "Skill Test"
+    "block.examplemod.example_block": "Example Block"
 }

@@ -1,8 +1,8 @@
 .idea
+.vscode
+.fleet
 .gradle
 build
 run
-.vscode
-.fleet
 run/log4j2.xml
 out

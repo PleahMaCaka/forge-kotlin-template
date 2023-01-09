@@ -1,6 +1,5 @@
 package com.pleahmacaka.examplemod.common.item
 
-import com.pleahmacaka.examplemod.ExampleCreativeTab
 import net.minecraft.core.particles.ParticleTypes
 import net.minecraft.server.level.ServerLevel
 import net.minecraft.sounds.SoundSource
@@ -14,7 +13,6 @@ import net.minecraft.world.level.block.SoundType
 
 object SadObsidianMaker : Item(
     Properties()
-        .tab(ExampleCreativeTab)
         .stacksTo(1)
 ) {
     override fun useOn(context: UseOnContext): InteractionResult {

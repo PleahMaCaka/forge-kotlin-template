@@ -1,4 +1,3 @@
-import net.minecraftforge.gradle.common.util.MinecraftExtension
 import org.spongepowered.asm.gradle.plugins.MixinExtension
 import org.spongepowered.asm.gradle.plugins.struct.DynamicProperties
 import java.text.SimpleDateFormat
@@ -9,24 +8,24 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.21")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20")
         classpath("org.spongepowered:mixingradle:0.7.+")
     }
 }
 
 apply(plugin = "kotlin")
 apply(plugin = "org.spongepowered.mixin")
-apply(from = "https://raw.githubusercontent.com/thedarkcolour/KotlinForForge/site/thedarkcolour/kotlinforforge/gradle/kff-3.7.1.gradle")
 
 plugins {
     eclipse
     `maven-publish`
-
     id("net.minecraftforge.gradle") version "5.1.+"
     id("org.parchmentmc.librarian.forgegradle") version "1.+"
+    id("org.jetbrains.kotlin.jvm") version "1.7.20"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.7.20"
 }
 
-version = "1.19-0.0.5.0"
+version = "1.19-0.0.1.0"
 group = "com.pleahmacaka"
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
@@ -37,14 +36,8 @@ println(
     ) + ") Arch: " + System.getProperty("os.arch")
 )
 
-val Project.minecraft: MinecraftExtension
-    get() = extensions.getByType()
-
-val Project.mixin: MixinExtension
-    get() = extensions.getByType()
-
-minecraft.run {
-    mappings("parchment", "2022.11.27-1.19.2")
+minecraft {
+    mappings("parchment", "BLEEDING-SNAPSHOT-1.19.3")
     accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
 
     runs.run {
@@ -64,7 +57,7 @@ minecraft.run {
                     source(sourceSets.main.get())
                 }
             }
-            
+
             args(
                 "--username", "Player",
             )
@@ -123,20 +116,13 @@ minecraft.run {
 }
 
 configurations {
-    val library = maybeCreate("library")
-    implementation.configure {
-        extendsFrom(library)
+    minecraftLibrary {
+        exclude("org.jetbrains", "annotations")
     }
 }
 
-minecraft.runs.all {
-    lazyToken("minecraft_classpath") {
-        val joined = configurations.getByName("library").copyRecursive().resolve()
-            .joinToString(File.pathSeparator) { it.absolutePath }
-        println(joined)
-        return@lazyToken joined
-    }
-}
+val Project.mixin: MixinExtension
+    get() = extensions.getByType()
 
 mixin.run {
     add(sourceSets.main.get(), "examplemod.mixins.refmap.json")
@@ -147,13 +133,25 @@ mixin.run {
     setDebug(debug)
 }
 
+configurations {
+    minecraftLibrary {
+        exclude("org.jetbrains", "annotations")
+    }
+}
+
 repositories {
     mavenCentral()
+    maven {
+        name = "Kotlin for Forge"
+        url = uri("https://thedarkcolour.github.io/KotlinForForge/")
+    }
 }
 
 dependencies {
-    minecraft("net.minecraftforge:forge:1.19.2-43.1.65")
+    minecraft("net.minecraftforge:forge:1.19.3-44.1.0")
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
+
+    implementation("thedarkcolour:kotlinforforge:3.9.0") // waiting for 4.x.x
 }
 
 sourceSets.main.configure {
@@ -176,10 +174,12 @@ tasks.withType<Jar> {
     finalizedBy("reobfJar")
 }
 
-fun DependencyHandler.minecraft(
-    dependencyNotation: Any
-): Dependency = add("minecraft", dependencyNotation)!!
-
 tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "17"
+    }
 }

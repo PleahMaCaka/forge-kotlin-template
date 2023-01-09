@@ -1,5 +1,5 @@
 {
-    "itemGroup.examplemod": "예제 모드",
+    "itemGroup.examplemod.exampletab": "예제 모드",
     "item.examplemod.sad_obsidian_maker": "슬픈 흑요석 제조기",
     "block.examplemod.example_block": "예제 블럭"
 }

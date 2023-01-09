@@ -9,14 +9,14 @@
 ## Features
 
 - Initialization
-    - [Items](./src/main/kotlin/common/init/ItemInit.kt) and
-      [Blocks](./src/main/kotlin/common/init/BlockInit.kt),
-      [BlockItems](./src/main/kotlin/common/init/BlockItemInit.kt)
+    - [Items](./src/main/kotlin/common/init/ItemRegistry.kt) and
+      [Blocks](./src/main/kotlin/common/init/BlockRegistry.kt),
+      [BlockItems](./src/main/kotlin/common/init/BlockItemRegistry.kt)
 - Examples
     - [Example Item](./src/main/kotlin/common/item/SadObsidianMaker.kt)
     - [Example Block](./src/main/kotlin/common/block/ExampleBlock.kt)
-    - [Example Creative Tab](./src/main/kotlin/ExampleMod.kt#L41)
-    - Key Binds (Shortcuts)
+    - [Example Creative Tab](./src/main/kotlin/event/ExampleCreativeModTab.kt)
+    - KeyBinds (Shortcuts)
         - [KeyBinds](./src/main/kotlin/common/keybind/KeyBinds.kt),
           [Handler](./src/main/kotlin/common/keybind/KeyBindHandler.kt)
 - Mixin
