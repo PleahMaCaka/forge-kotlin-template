@@ -1,4 +1,4 @@
-package com.pleahmacaka.examplemod.event
+package com.pleahmacaka.examplemod.common.event
 
 import com.pleahmacaka.examplemod.MODID
 import net.minecraftforge.event.entity.living.LivingAttackEvent

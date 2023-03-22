@@ -27,7 +27,9 @@ plugins {
 
 version = "1.19-0.0.1.0"
 group = "com.pleahmacaka"
+
 val modid = "examplemod"
+val vendor = "pleahmacaka"
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
@@ -125,7 +127,7 @@ dependencies {
     minecraft("net.minecraftforge:forge:1.19.4-45.0.22")
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 
-    implementation("thedarkcolour:kotlinforforge:3.10.0")
+    implementation("thedarkcolour:kotlinforforge:3.9.0") // Waiting for 4.0.0 for 1.19.4
 }
 
 sourceSets.main.configure { resources.srcDirs("src/generated/resources/") }
@@ -135,15 +137,28 @@ tasks.withType<Jar> {
     manifest {
         val map = HashMap<String, String>()
         map["Specification-Title"] = modid
-        map["Specification-Vendor"] = "pleahmacaka"
+        map["Specification-Vendor"] = vendor
         map["Specification-Version"] = "1"
         map["Implementation-Title"] = project.name
-        map["Implementation-Version"] = archiveBaseName.get()
-        map["Implementation-Vendor"] = "pleahmacaka"
+        map["Implementation-Version"] = project.version.toString()
+        map["Implementation-Vendor"] = vendor
         map["Implementation-Timestamp"] = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").format(Date())
         attributes(map)
     }
     finalizedBy("reobfJar")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+        }
+    }
+    repositories {
+        maven {
+            url = uri("file://${project.projectDir}/mcmodsrepo")
+        }
+    }
 }
 
 tasks.withType<JavaCompile>().configureEach {
