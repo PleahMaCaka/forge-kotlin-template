@@ -1,5 +1,7 @@
 # 🪵 Minecraft Forge ⚒ Kotlin Template 💜
 
+## 1.19.4 Support
+
 | INCLUDED       | INFO                                            |
 |----------------|-------------------------------------------------|
 | KotlinForForge | https://github.com/thedarkcolour/KotlinForForge |
