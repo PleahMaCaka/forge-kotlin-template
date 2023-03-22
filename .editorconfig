@@ -5,6 +5,3 @@ charset = utf-8
 indent_style = space
 tab_width = 4
 trim_trailing_whitespace = true
-
-[*.{json,toml,properties}]
-tab_width = 2

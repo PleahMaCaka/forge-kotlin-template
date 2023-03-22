@@ -1,7 +1,7 @@
 {
-    "variants": {
-        "": {
-            "model": "examplemod:block/example_block"
-        }
+  "variants": {
+    "": {
+      "model": "examplemod:block/example_block"
     }
+  }
 }

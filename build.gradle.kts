@@ -8,7 +8,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
         classpath("org.spongepowered:mixingradle:0.7.+")
     }
 }
@@ -21,12 +21,13 @@ plugins {
     `maven-publish`
     id("net.minecraftforge.gradle") version "5.1.+"
     id("org.parchmentmc.librarian.forgegradle") version "1.+"
-    id("org.jetbrains.kotlin.jvm") version "1.7.20"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.7.20"
+    id("org.jetbrains.kotlin.jvm") version "1.8.0"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.0"
 }
 
 version = "1.19-0.0.1.0"
 group = "com.pleahmacaka"
+val modid = "examplemod"
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
@@ -41,78 +42,50 @@ minecraft {
     mappings("parchment", "BLEEDING-SNAPSHOT-1.19.3")
     accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
 
-    runs.run {
-        create("client") {
+    runs.all {
+        mods {
             workingDirectory(project.file("run"))
             property("forge.logging.markers", "REGISTRIES")
             property("forge.logging.console.level", "debug")
-            property("forge.enabledGameTestNamespaces", "examplemod")
+            property("forge.enabledGameTestNamespaces", modid)
             property("terminal.jline", "true")
-            property("log4j.configurationFile", "log4j2.xml") // pretty logger
-
-            jvmArg("-XX:+AllowEnhancedClassRedefinition") // hotswap with JBRSDK
-            // https://forge.gemwire.uk/wiki/Hotswap
-
             mods {
-                create("examplemod") {
+                create(modid) {
                     source(sourceSets.main.get())
                 }
             }
+        }
+    }
+
+    runs.run {
+        create("client") {
+            property("log4j.configurationFile", "log4j2.xml")
+
+            // for hotswap https://forge.gemwire.uk/wiki/Hotswap
+            jvmArg("-XX:+AllowEnhancedClassRedefinition")
 
             args(
                 "--username", "Player",
             )
         }
 
-        create("server") {
-            workingDirectory(project.file("run"))
-            property("forge.logging.markers", "REGISTRIES")
-            property("forge.logging.console.level", "debug")
-            property("forge.enabledGameTestNamespaces", "examplemod")
-            property("terminal.jline", "true")
+        create("server") {}
 
-            mods {
-                create("examplemod") {
-                    source(sourceSets.main.get())
-                }
-            }
-        }
-
-        create("gameTestServer") {
-            workingDirectory(project.file("run"))
-            property("forge.logging.markers", "REGISTRIES")
-            property("forge.logging.console.level", "debug")
-            property("forge.enabledGameTestNamespaces", "examplemod")
-            property("terminal.jline", "true")
-
-            mods {
-                create("examplemod") {
-                    source(sourceSets.main.get())
-                }
-            }
-        }
+        create("gameTestServer") {}
 
         create("data") {
             workingDirectory(project.file("run"))
-            property("forge.logging.markers", "REGISTRIES")
-            property("forge.logging.console.level", "debug")
-            property("terminal.jline", "true")
-
             args(
                 "--mod",
-                "examplemod",
+                modid,
                 "--all",
                 "--output",
                 file("src/generated/resources/"),
                 "--existing",
                 file("src/main/resources")
             )
-            mods {
-                create("examplemod") {
-                    source(sourceSets.main.get())
-                }
-            }
         }
+
     }
 }
 
@@ -149,21 +122,19 @@ repositories {
 }
 
 dependencies {
-    minecraft("net.minecraftforge:forge:1.19.3-44.1.0")
+    minecraft("net.minecraftforge:forge:1.19.4-45.0.22")
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 
-    implementation("thedarkcolour:kotlinforforge:3.9.0") // waiting for 4.x.x
+    implementation("thedarkcolour:kotlinforforge:3.10.0")
 }
 
-sourceSets.main.configure {
-    resources.srcDirs("src/generated/resources/")
-}
+sourceSets.main.configure { resources.srcDirs("src/generated/resources/") }
 
 tasks.withType<Jar> {
-    archiveBaseName.set("examplemod")
+    archiveBaseName.set(modid)
     manifest {
         val map = HashMap<String, String>()
-        map["Specification-Title"] = "examplemod"
+        map["Specification-Title"] = modid
         map["Specification-Vendor"] = "pleahmacaka"
         map["Specification-Version"] = "1"
         map["Implementation-Title"] = project.name
