@@ -41,7 +41,7 @@ println(
 
 minecraft {
     mappings("official", "1.19.4")
-    mappings("parchment", "BLEEDING-SNAPSHOT-1.19.3")
+    mappings("parchment", "BLEEDING-SNAPSHOT-1.19.3") // not support 1.19.4 yet
     accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
 
     runs.all {
@@ -127,7 +127,7 @@ dependencies {
     minecraft("net.minecraftforge:forge:1.19.4-45.0.22")
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 
-    implementation("thedarkcolour:kotlinforforge:3.9.0") // Waiting for 4.0.0 for 1.19.4
+    implementation("thedarkcolour:kotlinforforge:4.1.0")
 }
 
 sourceSets.main.configure { resources.srcDirs("src/generated/resources/") }
