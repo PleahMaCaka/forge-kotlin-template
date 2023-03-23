@@ -8,10 +8,18 @@
 | ParchmentMC    | https://github.com/ParchmentMC                  |
 | Kotlin         | https://kotlinlang.org                          |
 
-## Features
+## 🛠️ Getting Started 🛠️
+
+| 1. Gradle Tasks -> forgegradle runs <br/>-> `gen<your IDE>Runs`                                                                          | 2. Run `runClient` <br/>in your IDE's Run / Debug Configuration                                                                                                                                                                                                                                                                                                  |
+|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <div align="center">![genRunConfig](https://cdn.discordapp.com/attachments/1072301775606001744/1088421409967050833/image.png)</div>      | <div align="center">![runClient](https://cdn.discordapp.com/attachments/1072301775606001744/1088424141801140244/image.png)</div>                                                                                                                                                                                                                                 |
+| <div align="center"> 3. HotSwap in debug mode [LEARN MORE](https://forge.gemwire.uk/wiki/Hotswap)</div>                                  | <div align="center">4. Useful References</div>                                                                                                                                                                                                                                                                                                                   |
+| <div align="center"><img width=350 src="https://cdn.discordapp.com/attachments/1072301775606001744/1088424637542703205/image.png"></div> | <div align="center"><a href="https://forge.gemwire.uk/wiki/Main_Page"><img width=260 src="https://cdn.discordapp.com/attachments/1072301775606001744/1088426016495644752/image.png"></a><br/><a href="https://docs.minecraftforge.net/en/1.19.x/"><img src="https://cdn.discordapp.com/attachments/1072301775606001744/1088426119876845578/image.png"></a></div> |
+
+## ⚙️ Features ⚙️
 
 - Initialization
-    - [Item](./src/main/kotlin/common/init/ItemRegistry.kt), 
+    - [Item](./src/main/kotlin/common/init/ItemRegistry.kt),
       [Block](./src/main/kotlin/common/init/BlockRegistry.kt) -
       [BlockItem](./src/main/kotlin/common/init/BlockItemRegistry.kt)
 - Examples
