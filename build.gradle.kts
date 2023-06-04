@@ -8,7 +8,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0-Beta")
         classpath("org.spongepowered:mixingradle:0.7.+")
     }
 }
@@ -21,11 +21,11 @@ plugins {
     `maven-publish`
     id("net.minecraftforge.gradle") version "5.1.+"
     id("org.parchmentmc.librarian.forgegradle") version "1.+"
-    id("org.jetbrains.kotlin.jvm") version "1.8.0"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.0"
+    id("org.jetbrains.kotlin.jvm") version "1.8.21"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.21"
 }
 
-version = "1.19-0.0.1.0"
+version = "1.19-0.1.0"
 group = "com.pleahmacaka"
 
 val modid = "examplemod"
@@ -124,10 +124,10 @@ repositories {
 }
 
 dependencies {
-    minecraft("net.minecraftforge:forge:1.19.4-45.0.22")
+    minecraft("net.minecraftforge:forge:1.19.4-45.0.66")
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 
-    implementation("thedarkcolour:kotlinforforge:4.1.0")
+    implementation("thedarkcolour:kotlinforforge:4.2.0")
 }
 
 sourceSets.main.configure { resources.srcDirs("src/generated/resources/") }
