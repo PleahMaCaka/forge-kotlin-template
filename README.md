@@ -1,6 +1,16 @@
 # 🪵 Minecraft Forge ⚒ Kotlin Template 💜
 
-## 🌟 1.19.4 Support 🌟
+# ⚠️ ! Warning ! ⚠️
+
+#### KotlinForForge does not yet support 1.20!
+
+#### This example does *not* run properly yet.
+
+#### Until then, use [1.19.x](https://github.com/PleahMaCaka/forge-template/tree/1.19.x)!
+
+#### Once everything is ready for 1.20.x, a skeleton branch without example code is planned.
+
+## 🌟 1.20 *NOT* Support 🌟
 
 | INCLUDED       | INFO                                            |
 |----------------|-------------------------------------------------|
@@ -19,15 +29,15 @@
 ## ⚙️ Features ⚙️
 
 - Initialization
-    - [Item](./src/main/kotlin/common/init/ItemRegistry.kt),
-      [Block](./src/main/kotlin/common/init/BlockRegistry.kt) -
-      [BlockItem](./src/main/kotlin/common/init/BlockItemRegistry.kt)
+    - [Item](./src/main/kotlin/init/ItemRegistry.kt),
+      [Block](./src/main/kotlin/init/BlockRegistry.kt) -
+      [BlockItem](./src/main/kotlin/init/BlockItemRegistry.kt)
 - Examples
-    - [Example Item](./src/main/kotlin/common/items/SadObsidianMaker.kt)
-    - [Example Block](./src/main/kotlin/common/blocks/ExampleBlock.kt)
-    - [Example Creative Tab](./src/main/kotlin/common/creativetabs/ExampleCreativeModTab.kt)
-    - [KeyBinds](./src/main/kotlin/common/keybind/KeyBinds.kt) ㅡ
-      [Handler](./src/main/kotlin/common/keybind/KeyBindHandler.kt)
+    - [Example Item](./src/main/kotlin/items/SadObsidianMaker.kt)
+    - [Example Block](./src/main/kotlin/blocks/ExampleBlock.kt)
+    - [Example Creative Tab](./src/main/kotlin/creativetabs/ExampleCreativeModTab.kt)
+    - [KeyBinds](./src/main/kotlin/keybind/KeyBinds.kt) ㅡ
+      [Handler](./src/main/kotlin/keybind/KeyBindHandler.kt)
 - Mixin
     - [General Mixin Example (Java)](./src/main/java/mixin/ExampleMixin.java)
     - [Mixin Kotlin Binding](./src/main/java/mixin/bindings/ExampleBindingMixin.java)

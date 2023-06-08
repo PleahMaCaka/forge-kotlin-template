@@ -1,12 +1,11 @@
-package com.pleahmacaka.examplemod.common.block
+package com.pleahmacaka.examplemod.blocks
 
 
 import net.minecraft.world.level.block.Block
-import net.minecraft.world.level.material.Material
 
 object ExampleBlock : Block(
     Properties
-        .of(Material.STONE)
+        .of()
         .instabreak()
         .friction(10f)
 )

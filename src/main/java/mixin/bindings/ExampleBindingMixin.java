@@ -1,6 +1,6 @@
 package mixin.bindings;
 
-import com.pleahmacaka.examplemod.mixin.ExampleMixinBindingKt;
+import com.pleahmacaka.examplemod.mixinkt.ExampleMixinBindingKt;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.main.GameConfig;
 import org.spongepowered.asm.mixin.Mixin;

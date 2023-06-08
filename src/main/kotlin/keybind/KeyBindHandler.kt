@@ -1,8 +1,8 @@
-package com.pleahmacaka.examplemod.common.keybind
+package com.pleahmacaka.examplemod.keybind
 
-import com.pleahmacaka.examplemod.common.keybind.KeyBinds.KB_EXAMPLE_KEYBIND_ONE
-import com.pleahmacaka.examplemod.common.keybind.KeyBinds.KB_EXAMPLE_KEYBIND_TWO
-import com.pleahmacaka.examplemod.common.keybind.KeyBinds.KEYBINDINGS
+import com.pleahmacaka.examplemod.keybind.KeyBinds.KB_EXAMPLE_KEYBIND_ONE
+import com.pleahmacaka.examplemod.keybind.KeyBinds.KB_EXAMPLE_KEYBIND_TWO
+import com.pleahmacaka.examplemod.keybind.KeyBinds.KEYBINDINGS
 import net.minecraft.client.KeyMapping
 import net.minecraft.client.Minecraft
 import net.minecraft.client.player.LocalPlayer
@@ -27,7 +27,6 @@ object KeyBindHandler {
     }
 
     private fun pressed(kb: KeyMapping) {
-//        val minecraft: Minecraft = Minecraft.getInstance() ?: return
         val player: LocalPlayer = Minecraft.getInstance().player ?: return
 
         when (kb) {

@@ -1,4 +1,4 @@
-package com.pleahmacaka.examplemod.common.item
+package com.pleahmacaka.examplemod.items
 
 import net.minecraft.core.particles.ParticleTypes
 import net.minecraft.server.level.ServerLevel

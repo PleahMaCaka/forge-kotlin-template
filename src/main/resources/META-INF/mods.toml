@@ -7,7 +7,6 @@ modId = "examplemod"
 version = "${file.jarVersion}"
 displayName = "examplemod"
 logoFile = "examplemod.png"
-credits = "PleahMaCaka"
 authors = "PleahMaCaka"
 description = '''
 Forge Template with ParchmentMC, KotlinForForge and Mixin
