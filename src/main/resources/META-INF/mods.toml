@@ -16,13 +16,13 @@ Forge Template with ParchmentMC, KotlinForForge and Mixin
 [[dependencies.examplemod]]
 modId = "forge"
 mandatory = true
-versionRange = "[43,)"
+versionRange = "[46,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.examplemod]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19,1.20)"
+versionRange = "[1.20,1.21)"
 ordering = "NONE"
 side = "BOTH"

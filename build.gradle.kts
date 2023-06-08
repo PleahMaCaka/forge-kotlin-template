@@ -6,6 +6,7 @@ import java.util.*
 buildscript {
     repositories {
         mavenCentral()
+        maven(url = "https://maven.fabricmc.net/")
     }
     dependencies {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0-Beta")
@@ -19,13 +20,13 @@ apply(plugin = "org.spongepowered.mixin")
 plugins {
     eclipse
     `maven-publish`
-    id("net.minecraftforge.gradle") version "5.1.+"
-    id("org.parchmentmc.librarian.forgegradle") version "1.+"
+    id("net.minecraftforge.gradle") version "[6.0,6.2)"
+//    id("org.parchmentmc.librarian.forgegradle") version "1.+"
     id("org.jetbrains.kotlin.jvm") version "1.8.21"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.8.21"
 }
 
-version = "1.19-0.1.0"
+version = "1.20-0.1.0"
 group = "com.pleahmacaka"
 
 val modid = "examplemod"
@@ -40,8 +41,9 @@ println(
 )
 
 minecraft {
-    mappings("official", "1.19.4")
-    mappings("parchment", "BLEEDING-SNAPSHOT-1.19.3") // not support 1.19.4 yet
+    mappings("official", "1.20")
+//    mappings("parchment", "BLEEDING-SNAPSHOT-1.19.3") // not support 1.20.x yet
+
     accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
 
     runs.all {
@@ -91,10 +93,27 @@ minecraft {
     }
 }
 
+sourceSets.main.configure { resources.srcDirs("src/generated/resources/") }
+
 configurations {
     minecraftLibrary {
         exclude("org.jetbrains", "annotations")
     }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "Kotlin for Forge"
+        url = uri("https://thedarkcolour.github.io/KotlinForForge/")
+    }
+}
+
+dependencies {
+    minecraft("net.minecraftforge:forge:1.20-46.0.1")
+    annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
+
+    implementation("thedarkcolour:kotlinforforge:4.2.0")
 }
 
 val Project.mixin: MixinExtension
@@ -114,23 +133,6 @@ configurations {
         exclude("org.jetbrains", "annotations")
     }
 }
-
-repositories {
-    mavenCentral()
-    maven {
-        name = "Kotlin for Forge"
-        url = uri("https://thedarkcolour.github.io/KotlinForForge/")
-    }
-}
-
-dependencies {
-    minecraft("net.minecraftforge:forge:1.19.4-45.0.66")
-    annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
-
-    implementation("thedarkcolour:kotlinforforge:4.2.0")
-}
-
-sourceSets.main.configure { resources.srcDirs("src/generated/resources/") }
 
 tasks.withType<Jar> {
     archiveBaseName.set(modid)
