@@ -1,16 +1,6 @@
 # 🪵 Minecraft Forge ⚒ Kotlin Template 💜
 
-# ⚠️ ! Warning ! ⚠️
-
-#### KotlinForForge does not yet support 1.20!
-
-#### This example does *not* run properly yet.
-
-#### Until then, use [1.19.x](https://github.com/PleahMaCaka/forge-template/tree/1.19.x)!
-
-#### Once everything is ready for 1.20.x, a skeleton branch without example code is planned.
-
-## 🌟 1.20 *NOT* Support 🌟
+## 🌟 1.20 Support 🌟
 
 | INCLUDED       | INFO                                            |
 |----------------|-------------------------------------------------|

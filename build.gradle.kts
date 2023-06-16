@@ -22,8 +22,8 @@ plugins {
     `maven-publish`
     id("net.minecraftforge.gradle") version "[6.0,6.2)"
 //    id("org.parchmentmc.librarian.forgegradle") version "1.+"
-    id("org.jetbrains.kotlin.jvm") version "1.8.21"
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.21"
+    id("org.jetbrains.kotlin.jvm") version "1.8.22"
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.22"
 }
 
 version = "1.20-0.1.0"
@@ -113,7 +113,7 @@ dependencies {
     minecraft("net.minecraftforge:forge:1.20-46.0.1")
     annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
 
-    implementation("thedarkcolour:kotlinforforge:4.2.0")
+    implementation("thedarkcolour:kotlinforforge:4.3.0")
 }
 
 val Project.mixin: MixinExtension
