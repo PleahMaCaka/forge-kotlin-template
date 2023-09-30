@@ -6,7 +6,7 @@ import java.util.*
 buildscript {
     repositories {
         mavenCentral()
-        maven(url = "https://maven.fabricmc.net/")
+        maven("https://maven.fabricmc.net/")
     }
     dependencies {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0-Beta")
@@ -19,31 +19,34 @@ apply(plugin = "org.spongepowered.mixin")
 
 plugins {
     eclipse
+    idea
     `maven-publish`
     id("net.minecraftforge.gradle") version "[6.0,6.2)"
-//    id("org.parchmentmc.librarian.forgegradle") version "1.+"
     id("org.jetbrains.kotlin.jvm") version "1.8.22"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.8.22"
 }
 
-version = "1.20-0.1.0"
 group = "com.pleahmacaka"
+version = "1.20-0.1.0"
 
 val modid = "examplemod"
 val vendor = "pleahmacaka"
 
+val minecraftVersion = "1.20.2"
+val forgeVersion = "48.0.13"
+
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
 println(
-    "Java: " + System.getProperty("java.version") + " JVM: " + System.getProperty("java.vm.version") + "(" + System.getProperty(
-        "java.vendor"
-    ) + ") Arch: " + System.getProperty("os.arch")
+    "Java: ${System.getProperty("java.version")} JVM: ${System.getProperty("java.vm.version")}(${
+        System.getProperty(
+            "java.vendor"
+        )
+    }) Arch: ${System.getProperty("os.arch")}"
 )
 
 minecraft {
-    mappings("official", "1.20")
-//    mappings("parchment", "BLEEDING-SNAPSHOT-1.19.3") // not support 1.20.x yet
-
+    mappings("official", minecraftVersion)
     accessTransformer(file("src/main/resources/META-INF/accesstransformer.cfg"))
 
     runs.all {
@@ -64,19 +67,12 @@ minecraft {
     runs.run {
         create("client") {
             property("log4j.configurationFile", "log4j2.xml")
-
-            // for hotswap https://forge.gemwire.uk/wiki/Hotswap
             jvmArg("-XX:+AllowEnhancedClassRedefinition")
-
-            args(
-                "--username", "Player",
-            )
+            args("--username", "Player")
         }
 
         create("server") {}
-
         create("gameTestServer") {}
-
         create("data") {
             workingDirectory(project.file("run"))
             args(
@@ -89,17 +85,10 @@ minecraft {
                 file("src/main/resources")
             )
         }
-
     }
 }
 
 sourceSets.main.configure { resources.srcDirs("src/generated/resources/") }
-
-configurations {
-    minecraftLibrary {
-        exclude("org.jetbrains", "annotations")
-    }
-}
 
 repositories {
     mavenCentral()
@@ -109,10 +98,13 @@ repositories {
     }
 }
 
-dependencies {
-    minecraft("net.minecraftforge:forge:1.20-46.0.1")
-    annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
+fun getProperty(name: String): String {
+    return project.findProperty(name)?.toString() ?: System.getProperty(name)
+}
 
+dependencies {
+    minecraft("net.minecraftforge:forge:$minecraftVersion-$forgeVersion")
+    annotationProcessor("org.spongepowered:mixin:0.8.5:processor")
     implementation("thedarkcolour:kotlinforforge:4.3.0")
 }
 
@@ -128,24 +120,20 @@ mixin.run {
     setDebug(debug)
 }
 
-configurations {
-    minecraftLibrary {
-        exclude("org.jetbrains", "annotations")
-    }
-}
-
 tasks.withType<Jar> {
     archiveBaseName.set(modid)
     manifest {
-        val map = HashMap<String, String>()
-        map["Specification-Title"] = modid
-        map["Specification-Vendor"] = vendor
-        map["Specification-Version"] = "1"
-        map["Implementation-Title"] = project.name
-        map["Implementation-Version"] = project.version.toString()
-        map["Implementation-Vendor"] = vendor
-        map["Implementation-Timestamp"] = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").format(Date())
-        attributes(map)
+        attributes(
+            mapOf(
+                "Specification-Title" to modid,
+                "Specification-Vendor" to vendor,
+                "Specification-Version" to "1",
+                "Implementation-Title" to project.name,
+                "Implementation-Version" to project.version.toString(),
+                "Implementation-Vendor" to vendor,
+                "Implementation-Timestamp" to SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").format(Date())
+            )
+        )
     }
     finalizedBy("reobfJar")
 }
