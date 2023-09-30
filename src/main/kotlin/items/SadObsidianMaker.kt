@@ -15,7 +15,7 @@ object SadObsidianMaker : Item(
         .stacksTo(1)
 ) {
     override fun useOn(context: UseOnContext): InteractionResult {
-        if (!context.level.isClientSide) return InteractionResult.PASS
+        if (context.level.isClientSide) return InteractionResult.PASS
 
         val level = context.level as ServerLevel
         val blockPos = context.clickedPos
