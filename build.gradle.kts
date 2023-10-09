@@ -33,7 +33,7 @@ val modid = "examplemod"
 val vendor = "pleahmacaka"
 
 val minecraftVersion = "1.20.2"
-val forgeVersion = "48.0.13"
+val forgeVersion = "48.0.20"
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
